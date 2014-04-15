@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Asynchronous Loops in Node.js Are Driving Me Loopy</title>
+	</head>
+
+	<body>
+
+		<div id="main"></div>
+
+		<script src="bower_components/async/lib/async.js"></script>
+
+		<script>
+			// this would make more sense with file reads, but I'm just trying to illustrate how it would be written
+			// in order to illustrate how this works I will be using a settimeout to pause the loop for one second each iteration
+
+			// get array of things to loop over
+			var myArray = ['The Joker', 'Darth Vader', 'Hannibal Lecter', 'Anton Chigurh', 'Nurse Ratched', 'Jack Torrance', 'Amon Goeth', 'Mr. Potter', 'Agent Smith'];
+
+			// pass the array to async
+			async.eachSeries(myArray, function(character, callback) {
+
+				setTimeout(function() {
+					document.getElementById('main').innerHTML += '<p>' + character + '</p>';
+					callback();
+				}, 1000)
+
+			}, function(err) {
+
+				document.getElementById('main').innerHTML += '<h1>all characters shown</h1>';
+
+			});
+
+		</script>
+
+	</body>
+
+</html>
