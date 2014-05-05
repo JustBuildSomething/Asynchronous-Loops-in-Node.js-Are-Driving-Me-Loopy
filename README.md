@@ -9,6 +9,8 @@ How To Run
 ---
 Be sure to have [Node](http://nodejs.org/) and [Bower](http://bower.io/) installed.
 
+---
+
 To run the server side example `cd` into the `server side example` directory.
 
 `cd server\ side\ example/`
